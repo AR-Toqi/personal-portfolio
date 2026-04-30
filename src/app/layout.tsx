@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Kinetic Portfolio | Full Stack Developer",
+  title: "Personal Portfolio | Full Stack Developer",
   description: "Architectural yet Fluid - A professional portfolio showcasing backend engineering and frontend mastery.",
 };
 
