@@ -6,6 +6,10 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroContent() {
@@ -15,33 +19,37 @@ export default function HeroContent() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Entrance Animation
       const tl = gsap.timeline();
 
-      tl.from(titleRef.current, {
-        y: 100,
-        opacity: 0,
+      // Initial state to prevent flash
+      gsap.set([".hero-line", ".hero-description", ".hero-cta"], { opacity: 0, y: 30 });
+
+      tl.to(".hero-line", {
+        y: 0,
+        opacity: 1,
         duration: 1,
         ease: "power4.out",
         stagger: 0.2
       })
-        .from(".hero-description", {
-          opacity: 0,
-          y: 20,
-          duration: 0.8
-        }, "-=0.5")
-        .from(".hero-cta", {
-          scale: 0.8,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.1
-        }, "-=0.3")
+        .to(".hero-description", {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.6")
+        .to(".hero-cta", {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.15
+        }, "-=0.6")
         .from(imageRef.current, {
           x: 100,
           opacity: 0,
           duration: 1.2,
           ease: "power3.out"
-        }, "-=1");
+        }, "-=1.2");
 
       // Floating Effect for Image
       gsap.to(imageRef.current, {
@@ -58,26 +66,82 @@ export default function HeroContent() {
 
   return (
     <div ref={containerRef} className="flex flex-col items-center gap-12 lg:flex-row lg:justify-between">
-      <div className="max-w-2xl text-center lg:text-left">
-        <span className="text-label-caps text-primary inline-block">AVAILABLE FOR NEW PROJECTS</span>
-        <h1 ref={titleRef} className="text-display-2xl mt-4 text-white leading-[1]">
-          Full Stack <br />
-          <span className="text-primary-container italic font-light">Architect.</span>
+      <div className="max-w-3xl text-center lg:text-left">
+        <h1 ref={titleRef} className="text-display-xl mt-4 text-white leading-[1.2] min-h-[140px]">
+          <span className="hero-line block">
+            Hi there{" "}
+            <motion.span
+              className="inline-block"
+              animate={{ rotate: [0, 20, -10, 20, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatDelay: 1,
+                ease: "easeInOut"
+              }}
+              style={{ originX: 0.7, originY: 0.7 }}
+            >
+              👋
+            </motion.span>
+          </span>
+          <span className="hero-line block text-display-lg">
+            I am <span className="text-primary-container">Toqi.</span>
+          </span>
+          <span className="hero-line block">
+            <span className="italic text-display-md">I am a </span>
+            <span className="text-secondary text-display-lg italic font-light inline-block">
+              <Typewriter
+                options={{
+                  strings: [
+                    "Full-stack Developer",
+                    "Problem-Solver",
+                    "AI Enthusiast"
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 50,
+                  delay: 80,
+                }}
+              />
+            </span>
+          </span>
         </h1>
-        <p className="hero-description mt-8 text-lg leading-relaxed text-zinc-400">
-          I don&apos;t just build websites; I engineer digital ecosystems.
-          Specializing in scalable backend systems and high-performance frontend interfaces that push the boundaries of the web.
+        <p className="hero-description mt-8 text-lg leading-relaxed text-zinc-400 max-w-2xl mx-auto lg:mx-0">
+          Building production-ready web applications with scalable backend systems, efficient APIs, and modern user-focused interfaces.
         </p>
-        <div className="hero-cta mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
-          <button className="rounded-full bg-primary-container px-8 py-4 font-bold text-black transition-all hover:bg-primary hover:shadow-[0_0_20px_rgba(255,128,0,0.5)]">
+        <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
+          <button className="hero-cta rounded-full bg-primary-container px-8 py-4 font-bold text-black transition-all hover:bg-primary hover:shadow-[0_0_20px_rgba(255,128,0,0.5)]">
             VIEW PROJECTS
           </button>
-          <Link 
-            href="#contact"
-            className="rounded-full border border-white/10 bg-white/5 px-8 py-4 font-bold text-white transition-all hover:bg-white/10 flex items-center justify-center cursor-pointer"
-          >
-            GET IN TOUCH
-          </Link>
+          <div className="flex gap-4">
+            <a 
+              href="https://github.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              aria-label="GitHub"
+            >
+              <FaGithub />
+            </a>
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+            <a 
+              href="https://x.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              aria-label="X (Twitter)"
+            >
+              <FaXTwitter />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -86,21 +150,22 @@ export default function HeroContent() {
         <div className="relative h-[450px] w-[320px] overflow-hidden rounded-3xl md:h-[550px] md:w-[420px] transform transition-transform group-hover:rotate-2">
           <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10"></div>
           <Image
-            src="/images/hero_portrait.png"
-            alt="Full Stack Architect"
+            src="/images/Hero-image.jpg"
+            alt="Toqi Hero"
             fill
+            sizes="(max-width: 768px) 100vw, 420px"
             className="object-cover transition-all duration-700 group-hover:scale-110"
           />
           {/* Inspired Stats Badge */}
           <div className="absolute top-6 right-6 glass-bright rounded-2xl p-4 text-right backdrop-blur-3xl z-20">
-            <span className="text-4xl font-black text-white">08+</span>
-            <p className="text-label-caps text-[10px] text-primary">YEARS EXP</p>
+            <span className="text-4xl font-black text-white">02+</span>
+            <p className="text-label-caps text-[10px] text-primary">Projects</p>
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent z-20">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-label-caps text-xs text-zinc-400">CURRENTLY AT</p>
+                <p className="text-label-caps text-xs text-zinc-400">AVAILABLE AT</p>
                 <p className="text-white font-bold">Freelance / Remote</p>
               </div>
               <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>

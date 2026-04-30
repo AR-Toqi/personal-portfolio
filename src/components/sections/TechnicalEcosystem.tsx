@@ -1,53 +1,87 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiShadcnui, SiNodedotjs, SiExpress, SiPrisma, SiPostgresql, SiMongodb, SiGit, SiGithub, SiDocker, SiFigma, SiPostman } from "react-icons/si";
+import { FaLock } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const skillGroups = [
+const techStack = [
   {
-    title: "Backend Core",
-    icon: "⚙️",
-    skills: ["Node.js", "Express", "Prisma", "PostgreSQL", "Redis"],
-    className: "md:col-span-2 md:row-span-1",
+    category: "FRONTEND",
+    skills: [
+      { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" /> },
+      { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" /> },
+      { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
+      { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#06B6D4]" /> },
+      { name: "Shadcn UI", icon: <SiShadcnui className="text-white" /> },
+    ],
   },
   {
-    title: "Frontend Mastery",
-    icon: "💎",
-    skills: ["Next.js", "React", "Tailwind", "GSAP", "Three.js"],
-    className: "md:col-span-1 md:row-span-2",
+    category: "BACKEND",
+    skills: [
+      { name: "Node.js", icon: <SiNodedotjs className="text-[#339933]" /> },
+      { name: "Express.js", icon: <SiExpress className="text-white" /> },
+      { name: "Prisma", icon: <SiPrisma className="text-white" /> },
+      { name: "Better-Auth", icon: <FaLock className="text-[#FF8000]" /> },
+    ],
   },
   {
-    title: "Cloud & DevOps",
-    icon: "☁️",
-    skills: ["Docker", "AWS", "CI/CD", "Nginx"],
-    className: "md:col-span-1 md:row-span-1",
+    category: "DATABASE",
+    skills: [
+      { name: "PostgreSQL", icon: <SiPostgresql className="text-[#4169E1]" /> },
+      { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+    ],
   },
   {
-    title: "Technical Strategy",
-    icon: "📐",
-    skills: ["System Design", "API First", "Microservices"],
-    className: "md:col-span-1 md:row-span-1",
+    category: "TOOLS & DESIGN",
+    skills: [
+      { name: "Git", icon: <SiGit className="text-[#F05032]" /> },
+      { name: "GitHub", icon: <SiGithub className="text-white" /> },
+      { name: "Docker", icon: <SiDocker className="text-[#2496ED]" /> },
+      { name: "Figma", icon: <SiFigma className="text-[#F24E1E]" /> },
+      { name: "Postman", icon: <SiPostman className="text-[#FF6C37]" /> },
+    ],
   },
 ];
 
 export default function TechnicalEcosystem() {
   const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".skill-card", {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out"
+      // Row-by-Row Timeline (Label then Icons)
+      gsap.utils.toArray<HTMLElement>(".tech-row").forEach((row) => {
+        const label = row.querySelector(".tech-category-label");
+        const icons = row.querySelectorAll(".tech-icon-box");
+        
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: "top 85%",
+            once: true,
+          }
+        });
+
+        tl.fromTo(label, 
+          { x: -50, opacity: 0 }, 
+          { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+        )
+        .fromTo(icons, 
+          { scale: 0.8, opacity: 0, y: 20 }, 
+          { 
+            scale: 1, 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.5, 
+            stagger: 0.1, 
+            ease: "back.out(1.2)" 
+          }, 
+          "-=0.6" // Start icons while label is still animating
+        );
       });
     }, sectionRef);
 
@@ -55,37 +89,38 @@ export default function TechnicalEcosystem() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-      <div className="mb-16 inline-block">
-        <span className="text-label-caps text-primary">MY STACK</span>
-        <h2 className="text-headline-lg text-white mt-2">
-          Technical <span className="text-primary-container italic font-light">DNA.</span>
-        </h2>
+    <section id="skills" ref={sectionRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+      <div className="mb-20">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-primary text-xl">✦</span>
+          <span className="text-label-caps text-primary">MY STACK</span>
+        </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
-        {skillGroups.map((group) => (
-          <div 
-            key={group.title} 
-            className={`skill-card glass rounded-3xl p-8 text-left transition-all hover:border-primary/40 hover:-translate-y-2 group ${group.className}`}
-          >
-            <div className="flex justify-between items-start mb-8">
-               <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl group-hover:bg-primary/20 transition-colors">
-                 {group.icon}
-               </div>
-               <div className="h-1 w-12 bg-white/10 rounded-full mt-6"></div>
+      <div className="space-y-20">
+        {techStack.map((group) => (
+          <div key={group.category} className="tech-row flex flex-col lg:flex-row gap-8 lg:gap-24 items-start">
+            {/* Category Label */}
+            <div className="lg:w-1/4">
+              <h3 className="tech-category-label text-5xl md:text-6xl font-black text-white/10 tracking-tighter hover:text-white/20 transition-colors cursor-default">
+                {group.category}
+              </h3>
             </div>
             
-            <h3 className="text-xl font-bold text-white mb-6 font-plus-jakarta">{group.title}</h3>
-            
-            <div className="flex flex-wrap gap-2">
+            {/* Skills Grid */}
+            <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {group.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-xl bg-white/5 px-4 py-2 text-xs font-medium text-zinc-400 border border-white/5 hover:border-primary/20 hover:text-white transition-all cursor-default"
+                <div 
+                  key={skill.name}
+                  className="tech-icon-box group flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/30 transition-all hover:-translate-y-1 hover:bg-white/[0.08]"
                 >
-                  {skill}
-                </span>
+                  <div className="text-3xl filter transition-all group-hover:scale-110">
+                    {skill.icon}
+                  </div>
+                  <span className="text-sm font-medium text-zinc-400 group-hover:text-white transition-colors">
+                    {skill.name}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
