@@ -114,27 +114,27 @@ export default function HeroContent() {
             VIEW PROJECTS
           </button>
           <div className="flex gap-4">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
+            <a
+              href="https://github.com/AR-Toqi"
+              target="_blank"
               rel="noopener noreferrer"
               className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="GitHub"
             >
               <FaGithub />
             </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/abdullah-ragib-toqi-b5154a297/"
+              target="_blank"
               rel="noopener noreferrer"
               className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
             </a>
-            <a 
-              href="https://x.com" 
-              target="_blank" 
+            <a
+              href="https://x.com/ar_toqi"
+              target="_blank"
               rel="noopener noreferrer"
               className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="X (Twitter)"
@@ -154,6 +154,7 @@ export default function HeroContent() {
             alt="Toqi Hero"
             fill
             sizes="(max-width: 768px) 100vw, 420px"
+            priority
             className="object-cover transition-all duration-700 group-hover:scale-110"
           />
           {/* Inspired Stats Badge */}

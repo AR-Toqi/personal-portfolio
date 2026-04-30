@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,43 +12,41 @@ export default function About() {
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const image = imageRef.current;
+    const content = contentRef.current;
+    if (!container || !image || !content) return;
+
     const ctx = gsap.context(() => {
-      // Container Entrance
-      gsap.from(".about-container", {
+      const tl = gsap.timeline();
+
+      tl.from(".about-container", {
         opacity: 0,
         y: 50,
         duration: 1,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".about-container",
-          start: "top 85%",
-        }
-      });
-
-      // Staggered items inside
-      gsap.from(imageRef.current, {
+      })
+      .from(image, {
         x: -80,
         opacity: 0,
         duration: 1.2,
         ease: "power4.out",
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 80%",
-        }
-      });
-
-      gsap.from(contentRef.current, {
+      }, "-=0.8")
+      .from(content, {
         x: 80,
         opacity: 0,
         duration: 1.2,
         ease: "power4.out",
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 80%",
-        }
+      }, "-=1.2");
+
+      ScrollTrigger.create({
+        trigger: container,
+        animation: tl,
+        start: "top 80%",
+        once: true,
       });
-    }, containerRef);
+    }, container);
 
     return () => ctx.revert();
   }, []);

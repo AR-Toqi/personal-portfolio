@@ -52,19 +52,17 @@ export default function TechnicalEcosystem() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
     const ctx = gsap.context(() => {
       // Row-by-Row Timeline (Label then Icons)
       gsap.utils.toArray<HTMLElement>(".tech-row").forEach((row) => {
+        
         const label = row.querySelector(".tech-category-label");
         const icons = row.querySelectorAll(".tech-icon-box");
         
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: row,
-            start: "top 85%",
-            once: true,
-          }
-        });
+        const tl = gsap.timeline();
 
         tl.fromTo(label, 
           { x: -50, opacity: 0 }, 
@@ -82,6 +80,14 @@ export default function TechnicalEcosystem() {
           }, 
           "-=0.6" // Start icons while label is still animating
         );
+
+        ScrollTrigger.create({
+          trigger: row,
+          animation: tl,
+          start: "top 85%",
+          once: true,
+        });
+
       });
     }, sectionRef);
 
