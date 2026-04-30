@@ -27,7 +27,7 @@ export default function Education() {
     <section id="education" ref={containerRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
       <div className="mb-20 text-center lg:text-left">
         <span className="text-label-caps text-primary">// ACADEMIC PATH</span>
-        <h2 className="text-headline-lg text-white mt-2">
+        <h2 className="text-headline-lg text-zinc-900 dark:text-white mt-2">
           Educational <span className="italic font-light text-primary-container">Foundation.</span>
         </h2>
       </div>
@@ -57,14 +57,14 @@ export default function Education() {
                   <span className="text-sm font-bold text-primary tracking-wider uppercase">{edu.duration}</span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors font-plus-jakarta leading-tight">
+                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-primary transition-colors font-plus-jakarta leading-tight">
                   {edu.degree}
                 </h3>
-                <p className="text-zinc-400 font-medium mt-2 mb-6">{edu.institution}</p>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium mt-2 mb-6">{edu.institution}</p>
                 
                 <div className="space-y-3">
                   {edu.details.map((detail, i) => (
-                    <div key={i} className="flex items-start gap-3 text-zinc-500 text-sm leading-relaxed">
+                    <div key={i} className="flex items-start gap-3 text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">
                       <div className="h-1 w-1 rounded-full bg-primary/50 mt-2"></div>
                       {detail}
                     </div>

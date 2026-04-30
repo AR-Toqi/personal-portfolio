@@ -8,7 +8,7 @@ import Projects from "@/components/sections/Projects";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-40 pb-40">
+    <div className="flex flex-col gap-12 pb-24">
       {/* Hero Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <HeroContent />

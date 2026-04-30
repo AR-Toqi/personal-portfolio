@@ -24,6 +24,8 @@ export const metadata: Metadata = {
 
 import SmoothScroll from "@/components/providers/SmoothScroll";
 
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,13 +34,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${inter.variable} ${spaceGrotesk.variable} dark antialiased`}
-      style={{ colorScheme: 'dark' }}
+      className={`${plusJakartaSans.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-screen bg-background text-on-background font-inter selection:bg-primary/30 selection:text-primary">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

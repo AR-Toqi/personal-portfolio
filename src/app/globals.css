@@ -1,32 +1,34 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   /* Surface Colors */
-  --color-surface: #111317;
-  --color-surface-dim: #111317;
-  --color-surface-bright: #37393e;
-  --color-surface-container-lowest: #0c0e12;
-  --color-surface-container-low: #1a1c20;
-  --color-surface-container: #1e2024;
-  --color-surface-container-high: #282a2e;
-  --color-surface-container-highest: #333539;
-  --color-on-surface: #e2e2e8;
-  --color-on-surface-variant: #dfc1af;
-  
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+
   /* Primary Orange */
-  --color-primary: #ffb787;
-  --color-on-primary: #502400;
-  --color-primary-container: #ff8000;
-  --color-on-primary-container: #5e2b00;
-  
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+
   /* Secondary Blue */
-  --color-secondary: #adc6ff;
-  --color-on-secondary: #002e69;
-  --color-secondary-container: #4b8eff;
-  
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+
   /* Background */
-  --color-background: #111317;
-  --color-on-background: #e2e2e8;
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
 
   /* Typography Fonts */
   --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
@@ -41,8 +43,63 @@
 }
 
 :root {
+  /* LIGHT THEME VARIABLES */
+  --surface: #ffffff;
+  --surface-dim: #f8f9fa;
+  --surface-bright: #f2dfcf;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f8f9fa;
+  --surface-container: #f1f3f5;
+  --surface-container-high: #e9ecef;
+  --surface-container-highest: #dee2e6;
+  --on-surface: #212529;
+  --on-surface-variant: #495057;
+
+  --primary: #ff6a00;
+  --on-primary: #ffffff;
+  --primary-container: #fa8e41;
+  --on-primary-container: #4a2100;
+
+  --secondary: #2b70f0;
+  --on-secondary: #ffffff;
+  --secondary-container: #d6e4ff;
+
+  --background: #fafafa;
+  --on-background: #111111;
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bright-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  /* DARK THEME VARIABLES (Original) */
+  --surface: #111317;
+  --surface-dim: #111317;
+  --surface-bright: #37393e;
+  --surface-container-lowest: #0c0e12;
+  --surface-container-low: #1a1c20;
+  --surface-container: #1e2024;
+  --surface-container-high: #282a2e;
+  --surface-container-highest: #333539;
+  --on-surface: #e2e2e8;
+  --on-surface-variant: #dfc1af;
+
+  --primary: #ffb787;
+  --on-primary: #502400;
+  --primary-container: #ff8000;
+  --on-primary-container: #5e2b00;
+
+  --secondary: #adc6ff;
+  --on-secondary: #002e69;
+  --secondary-container: #4b8eff;
+
   --background: #111317;
-  --foreground: #e2e2e8;
+  --on-background: #e2e2e8;
+
+  --glass-bg: rgba(30, 32, 36, 0.6);
+  --glass-bright-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -53,15 +110,15 @@ body {
 
 /* Glassmorphism Utility */
 @utility glass {
-  background: rgba(30, 32, 36, 0.6);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
 }
 
 @utility glass-bright {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bright-bg);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
 }
 
 /* Typography Utilities */

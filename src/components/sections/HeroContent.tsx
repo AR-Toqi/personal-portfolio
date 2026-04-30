@@ -67,7 +67,7 @@ export default function HeroContent() {
   return (
     <div ref={containerRef} className="flex flex-col items-center gap-12 lg:flex-row lg:justify-between">
       <div className="max-w-3xl text-center lg:text-left">
-        <h1 ref={titleRef} className="text-display-xl mt-4 text-white leading-[1.2] min-h-[140px]">
+        <h1 ref={titleRef} className="text-display-xl mt-4 text-zinc-900 dark:text-white leading-[1.2] min-h-[140px]">
           <span className="hero-line block">
             Hi there{" "}
             <motion.span
@@ -106,7 +106,7 @@ export default function HeroContent() {
             </span>
           </span>
         </h1>
-        <p className="hero-description mt-8 text-lg leading-relaxed text-zinc-400 max-w-2xl mx-auto lg:mx-0">
+        <p className="hero-description mt-8 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto lg:mx-0">
           Building production-ready web applications with scalable backend systems, efficient APIs, and modern user-focused interfaces.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
@@ -118,7 +118,7 @@ export default function HeroContent() {
               href="https://github.com/AR-Toqi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 dark:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="GitHub"
             >
               <FaGithub />
@@ -127,7 +127,7 @@ export default function HeroContent() {
               href="https://www.linkedin.com/in/abdullah-ragib-toqi-b5154a297/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 dark:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
@@ -136,7 +136,7 @@ export default function HeroContent() {
               href="https://x.com/ar_toqi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta h-14 w-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white text-2xl transition-all hover:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 dark:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="X (Twitter)"
             >
               <FaXTwitter />
@@ -159,15 +159,15 @@ export default function HeroContent() {
           />
           {/* Inspired Stats Badge */}
           <div className="absolute top-6 right-6 glass-bright rounded-2xl p-4 text-right backdrop-blur-3xl z-20">
-            <span className="text-4xl font-black text-white">02+</span>
+            <span className="text-4xl font-black text-zinc-900 dark:text-white">02+</span>
             <p className="text-label-caps text-[10px] text-primary">Projects</p>
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent z-20">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-label-caps text-xs text-zinc-400">AVAILABLE AT</p>
-                <p className="text-white font-bold">Freelance / Remote</p>
+                <p className="text-label-caps text-xs text-zinc-600 dark:text-zinc-400">AVAILABLE AT</p>
+                <p className="text-zinc-900 dark:text-white font-bold">Freelance / Remote</p>
               </div>
               <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
             </div>

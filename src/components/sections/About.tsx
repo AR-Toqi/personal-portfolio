@@ -60,7 +60,7 @@ export default function About() {
         <div className="flex flex-col gap-16 lg:flex-row lg:items-center">
           {/* Image Content (Now on Left) */}
           <div ref={imageRef} className="flex-1 relative order-2 lg:order-1">
-            <div className="aspect-square relative rounded-3xl overflow-hidden glass border-4 border-white/5 shadow-2xl">
+            <div className="aspect-square relative rounded-3xl overflow-hidden glass border-4 border-black/5 dark:border-white/5 shadow-2xl">
               <Image
                 src="/images/about-photo.jpg"
                 alt="About Toqi"
@@ -72,18 +72,18 @@ export default function About() {
             </div>
             {/* Floating Label */}
             <div className="absolute -bottom-6 -left-6 lg:-right-6 lg:left-auto glass rounded-2xl p-6 shadow-2xl transform rotate-3">
-              <p className="text-white font-bold tracking-widest text-sm underline decoration-primary decoration-2 underline-offset-4">EST. 2023</p>
+              <p className="text-zinc-900 dark:text-white font-bold tracking-widest text-sm underline decoration-primary decoration-2 underline-offset-4">EST. 2023</p>
             </div>
           </div>
 
           {/* Text Content (Now on Right) */}
           <div ref={contentRef} className="flex-1 order-1 lg:order-2">
             <span className="text-label-caps text-secondary">ABOUT ME</span>
-            <h2 className="text-headline-lg text-white mt-4 leading-tight">
+            <h2 className="text-headline-lg text-zinc-900 dark:text-white mt-4 leading-tight">
               From Curiosity to <br />
               <span className="text-primary-container">Craftsmanship.</span>
             </h2>
-            <div className="mt-8 space-y-6 text-zinc-400 leading-relaxed text-lg">
+            <div className="mt-8 space-y-6 text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg">
               <p>
                 I started my journey in web development with a simple curiosity about how websites and digital products actually work.
                 What began as experimentation and learning slowly turned into a real passion for building applications that are both functional and meaningful.

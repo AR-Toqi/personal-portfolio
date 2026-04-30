@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abdullah Ragib Toqi | Full Stack Developer Portfolio
 
-## Getting Started
+Welcome to my personal portfolio repository! This project serves as a showcase of my technical ecosystem, featured projects, educational background, and professional aesthetic as a Full Stack Developer.
 
-First, run the development server:
+It was built with a heavy emphasis on **modern, cinematic design**, utilizing glassmorphism, responsive dynamic layouts, and a seamless light/dark theme system.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Cinematic Hero Section:** Engaging typography-led introduction with dynamic button hovers.
+- **Flawless Theme Switching:** Fully responsive Light and Dark modes powered by `next-themes` and CSS variables, providing a completely different feel depending on user preference.
+- **Dynamic Routing:** A scalable `/projects/[id]` architecture to beautifully render rich data (challenges, future implementations, links) for any featured project.
+- **Glassmorphism Aesthetic:** Premium frosted-glass UI containers that adapt transparency and color based on the active theme.
+- **GSAP Animations:** Smooth scroll-triggered entrance animations across the Technical Ecosystem and Education sections.
+- **Fully Responsive:** Layouts adapt flawlessly from 4K desktop screens down to mobile devices.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [GSAP](https://gsap.com/) & [Lenis](https://lenis.studiofreight.com/) (Smooth Scrolling)
+- **Icons:** `react-icons/fa6` & `react-icons/si`
+- **Theming:** `next-themes`
 
-## Learn More
+## 🚀 Running Locally
 
-To learn more about Next.js, take a look at the following resources:
+To run this project on your local machine:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/AR-Toqi/personal-portfolio.git
+   cd personal-portfolio
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **View the application:**
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 Project Structure
+
+- `/src/app` - Next.js App Router core (layouts, pages, globals.css).
+- `/src/components/layout` - Structural components like `Navbar` and `Footer`.
+- `/src/components/sections` - Distinct page sections (`HeroContent`, `About`, `Projects`, `TechnicalEcosystem`, etc.).
+- `/src/constants` - Static data storage (e.g., `projects.ts`).
+- `/public/images` - Static assets including the dynamic TOQI logos.
+
+## 📧 Contact
+
+Feel free to explore the code, and if you have any questions or collaboration opportunities, reach out!
+
+- **LinkedIn:** [Abdullah Ragib Toqi](https://www.linkedin.com/in/abdullah-ragib-toqi-b5154a297/)
+- **GitHub:** [@AR-Toqi](https://github.com/AR-Toqi)
+- **Twitter / X:** [@ar_toqi](https://x.com/ar_toqi)
+
+---
+*EST. 2026 — BUILT WITH NEXT.JS*

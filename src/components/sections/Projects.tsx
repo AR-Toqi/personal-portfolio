@@ -20,7 +20,7 @@ export default function Projects() {
       const cards = gsap.utils.toArray<HTMLElement>(".project-card");
       if (cards.length > 0) {
         const tl = gsap.timeline();
-        
+
         tl.from(cards, {
           y: 60,
           opacity: 0,
@@ -45,8 +45,8 @@ export default function Projects() {
     <section id="projects" ref={containerRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
       <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="max-w-xl">
-          <span className="text-label-caps text-primary">// PORTFOLIO</span>
-          <h2 className="text-headline-lg text-white mt-2">
+          <span className="text-label-caps text-primary">// PROJECTS</span>
+          <h2 className="text-headline-lg text-zinc-900 dark:text-white mt-2">
             Selected <span className="italic font-light text-primary-container">Creations.</span>
           </h2>
         </div>
