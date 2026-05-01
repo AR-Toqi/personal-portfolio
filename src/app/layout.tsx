@@ -37,7 +37,7 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-background text-on-background font-inter selection:bg-primary/30 selection:text-primary">
+      <body className="min-h-screen bg-background text-on-background font-inter selection:bg-primary/30 selection:text-primary overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

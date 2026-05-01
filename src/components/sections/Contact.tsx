@@ -36,8 +36,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 w-full">
-      <div className="w-full relative glass rounded-[3rem] p-10 md:p-20 flex flex-col lg:flex-row gap-20 overflow-hidden">
+    <section id="contact" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-24 w-full">
+      <div className="w-full relative glass rounded-[2rem] md:rounded-[3rem] p-6 sm:p-10 md:p-20 flex flex-col lg:flex-row gap-12 md:gap-20 overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute -bottom-20 -left-20 h-96 w-96 bg-primary/10 blur-[120px] -z-10"></div>
         <div className="absolute -top-20 -right-20 h-96 w-96 bg-secondary/10 blur-[120px] -z-10"></div>
@@ -53,28 +53,28 @@ export default function Contact() {
             Let&apos;s build something that makes a difference.
           </p>
 
-          <div className="mt-16 space-y-10">
+          <div className="mt-12 md:mt-16 space-y-8 md:space-y-10">
             <a
               href="mailto:toqiabdullah61990@gmail.com"
-              className="group flex items-center gap-6 cursor-pointer w-fit"
+              className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 cursor-pointer w-fit"
             >
-              <div className="h-16 w-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-2xl group-hover:bg-primary/10 group-hover:border-primary/30 transition-all">📧</div>
-              <div>
+              <div className="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-xl sm:text-2xl group-hover:bg-primary/10 group-hover:border-primary/30 transition-all shrink-0">📧</div>
+              <div className="min-w-0">
                 <p className="text-label-caps text-[10px] text-zinc-500 dark:text-zinc-400">DIRECT EMAIL</p>
-                <p className="text-zinc-900 dark:text-white text-lg font-medium group-hover:text-primary transition-colors">toqiabdullah61990@gmail.com</p>
+                <p className="text-zinc-900 dark:text-white text-base sm:text-lg font-medium group-hover:text-primary transition-colors break-all">toqiabdullah61990@gmail.com</p>
               </div>
             </a>
-            <div className="group flex items-center gap-6 cursor-default w-fit">
-              <div className="h-16 w-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-2xl group-hover:bg-secondary/10 group-hover:border-secondary/30 transition-all">🌍</div>
+            <div className="group flex items-center gap-4 sm:gap-6 cursor-default w-fit">
+              <div className="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-xl sm:text-2xl group-hover:bg-secondary/10 group-hover:border-secondary/30 transition-all shrink-0">🌍</div>
               <div>
                 <p className="text-label-caps text-[10px] text-zinc-500 dark:text-zinc-400">BASED IN</p>
-                <p className="text-zinc-900 dark:text-white text-lg font-medium">Remote / Bangladesh</p>
+                <p className="text-zinc-900 dark:text-white text-base sm:text-lg font-medium">Remote / Bangladesh</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex-1 bg-black/5 dark:bg-white/5 rounded-[2rem] p-8 md:p-12 border border-black/10 dark:border-white/10 backdrop-blur-md relative">
+        <div className="flex-1 bg-black/5 dark:bg-white/5 rounded-[1.5rem] md:rounded-[2rem] p-6 sm:p-8 md:p-12 border border-black/10 dark:border-white/10 backdrop-blur-md relative">
           <AnimatePresence mode="wait">
             {!isSuccess ? (
               <motion.form

@@ -146,8 +146,8 @@ export default function HeroContent() {
       </div>
 
       {/* Profile Image with inspired layout */}
-      <div ref={imageRef} className="relative group">
-        <div className="relative h-[450px] w-[320px] overflow-hidden rounded-3xl md:h-[550px] md:w-[420px] transform transition-transform group-hover:rotate-2">
+      <div ref={imageRef} className="relative group mt-8 lg:mt-0">
+        <div className="relative h-[400px] w-[280px] sm:h-[450px] sm:w-[320px] overflow-hidden rounded-[2rem] md:rounded-3xl md:h-[550px] md:w-[420px] transform transition-transform group-hover:rotate-2">
           <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10"></div>
           <Image
             src="/images/Hero-image.jpg"
