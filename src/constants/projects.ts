@@ -52,7 +52,7 @@ export const featuredProjects: IProject[] = [
     image: "/project-images/Cinematic Amalfi Coast.png",
     tags: ["Travel", "AI", "Full-Stack"],
     techStack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "ShadCN UI", "Framer Motion", "TanStack Query v5", "React Hook Form", "Zod", "Node.js", "Express.js", "PostgreSQL", "Prisma", "OpenAI GPT-4o", "Google Gemini Pro"],
-    liveDemoUrl: "https://wandr-travels.vercel.app",
+    liveDemoUrl: "https://ai-tourism-platform.vercel.app",
     clientUrl: "https://github.com/AR-Toqi/ai-tourism-platform-client",
     serverUrl: "https://github.com/AR-Toqi/ai-tourism-platform-server",
     challenges: [
