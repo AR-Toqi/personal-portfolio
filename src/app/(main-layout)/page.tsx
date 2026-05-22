@@ -2,7 +2,7 @@ import React from "react";
 import HeroContent from "@/components/sections/HeroContent";
 import TechnicalEcosystem from "@/components/sections/TechnicalEcosystem";
 import About from "@/components/sections/About";
-import Education from "@/components/sections/Education";
+import Certification from "@/components/sections/Certification";
 import Contact from "@/components/sections/Contact";
 import Projects from "@/components/sections/Projects";
 
@@ -20,8 +20,8 @@ export default function HomePage() {
       {/* Technical Ecosystem */}
       <TechnicalEcosystem />
 
-      {/* Education Section */}
-      <Education />
+      {/* Certification Section */}
+      <Certification />
 
       {/* Selected Works */}
       <Projects />

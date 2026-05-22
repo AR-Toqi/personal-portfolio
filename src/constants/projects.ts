@@ -9,7 +9,8 @@ export const featuredProjects: IProject[] = [
     tags: ["CORE", "Environment"],
     techStack: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Framer Motion", "Tenstack Query", "Better Auth", "d3.js", "Zod", "Express.js", "Prisma", "PostgreSQL"],
     liveDemoUrl: "https://green-bangladesh-client.vercel.app/",
-    sourceCodeUrl: "https://github.com/AR-Toqi/Green-Bangladesh-Client",
+    clientUrl: "https://github.com/AR-Toqi/Green-Bangladesh-Client",
+    serverUrl: "https://github.com/AR-Toqi/Green-Bangladesh",
     challenges: [
       "Handling large geospatial datasets for 64 districts without compromising map rendering performance.",
       "Implementing an intuitive UI for non-technical citizens to accurately report new tree plantations.",
@@ -29,7 +30,8 @@ export const featuredProjects: IProject[] = [
     tags: ["Ecommerce", "Health-Care"],
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "TanStack Query", "Node.js", "Express.js", "Prisma", "PostgreSQL", "Zod", "Better Auth", "Multer", "Cloudinary"],
     liveDemoUrl: "https://medistore-frontend-eight.vercel.app",
-    sourceCodeUrl: "https://github.com/AR-Toqi/medi-store_frontend",
+    clientUrl: "https://github.com/AR-Toqi/medi-store_frontend",
+    serverUrl: "https://github.com/AR-Toqi/medi-store_backend",
     challenges: [
       "Server Components vs. Client Components — This was the biggest game-changer and the most challenging aspect of the entire project. Next.js App Router encourages keeping pages as Server Components by default for better performance and SEO. I made it a priority to keep all main pages as server components and extract any interactive or client-side logic (state, effects, event handlers) into separate client components. This architectural pattern made the application significantly faster — pages load with pre-rendered HTML from the server, and only the interactive parts hydrate on the client. Getting this separation right required careful planning of the component tree and a deep understanding of the React Server Component model.",
       "Search with TanStack Query — Implementing the real-time medicine search in the navbar was another challenge. I used TanStack React Query with a debounced input to fetch search results and display them in a dropdown. Coordinating the query caching, loading states, and dropdown visibility while keeping the search component as a client island within the server-rendered navbar required thoughtful composition.",
@@ -45,22 +47,27 @@ export const featuredProjects: IProject[] = [
   },
   {
     id: "3",
-    title: "Assembly: Endgame",
-    description: "Assembly: Endgame is a modern, interactive word-guessing game built with React. The goal is to guess the hidden word within 8 attempts. Every wrong guess costs a programming language its 'life.' Save the programming world from the clutches of Assembly!",
-    image: "/project-images/AssemblyEndgame.png",
-    tags: ["MOBILE", "Games"],
-    techStack: ["React", "JavaScript", "Tailwind CSS", "Vite"],
-    liveDemoUrl: "https://assembly-endgame-by-ar-toqi.netlify.app/",
-    sourceCodeUrl: "https://github.com/AR-Toqi/Assembly-Endgame-React.js-",
+    title: "Wandr Travels",
+    description: "Wandr Travels is a cutting-edge, AI-powered travel intelligence platform designed to transform how travelers discover, plan, and experience the world. Unlike traditional listing sites, Wandr Travels understands user intent, preferences, and budget to build fully personalized, day-by-day itineraries and provide real-time travel assistance.",
+    image: "/project-images/Cinematic Amalfi Coast.png",
+    tags: ["Travel", "AI", "Full-Stack"],
+    techStack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "ShadCN UI", "Framer Motion", "TanStack Query v5", "React Hook Form", "Zod", "Node.js", "Express.js", "PostgreSQL", "Prisma", "OpenAI GPT-4o", "Google Gemini Pro"],
+    liveDemoUrl: "https://wandr-travels.vercel.app",
+    clientUrl: "https://github.com/AR-Toqi/ai-tourism-platform-client",
+    serverUrl: "https://github.com/AR-Toqi/ai-tourism-platform-server",
     challenges: [
-      "Managing complex React state for word guessing, lives, and keyboard inputs.",
-      "Creating smooth, performant animations for the 'death' of programming languages.",
-      "Ensuring mobile responsiveness for a seamless on-the-go gaming experience."
+      "Architecting the AI Logic — Implementing a Context-Aware Memory System for the chat assistant, ensuring it understands the trajectory of a traveler's planning process rather than just answering one-off questions.",
+      "Reliable Structured Data — Creating a robust validation layer using Zod and JSON Schemas to ensure AI's itinerary outputs always match frontend's day-by-day UI components without crashing.",
+      "User-Friendly Complexity — Using Atomic Component Design to keep the UI clean while providing deep functionality, abstracting complex business logic into custom React Hooks and Middleware.",
+      "Performance & Streaming — Implementing Streaming Responses (Server-Sent Events) so users see results immediately, significantly improving perceived performance and user experience."
     ],
     futureImplementations: [
-      "Adding a global leaderboard and user accounts to track high scores.",
-      "Implementing different difficulty levels and dynamic word length scaling.",
-      "Adding sound effects and background music for better immersion."
+      "Integrated Booking & Payments — Direct hotel and activity bookings powered by Stripe.",
+      "Interactive Map Integration — Google Maps API for real-time navigation and destination pins.",
+      "AI Voice Assistant — Hands-free travel planning via Web Speech API.",
+      "Global Reach — Multi-language support (i18n) and localized content for international travelers.",
+      "Collaborative Planning — Real-time 'Trip Rooms' where friends can plan itineraries together.",
+      "Mobile Experience — Dedicated iOS and Android apps built with React Native."
     ]
   },
 ];

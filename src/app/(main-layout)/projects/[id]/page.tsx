@@ -112,14 +112,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </a>
             )}
             
-            {project.sourceCodeUrl && (
+            {project.clientUrl && (
               <a 
-                href={project.sourceCodeUrl}
+                href={project.clientUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-2xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-8 py-4 font-bold text-zinc-900 dark:text-white transition-all hover:bg-black/10 dark:hover:bg-white/10 flex items-center gap-2"
               >
-                SOURCE CODE <span className="text-xl leading-none">↗</span>
+                CLIENT CODE <span className="text-xl leading-none">↗</span>
+              </a>
+            )}
+            
+            {project.serverUrl && (
+              <a 
+                href={project.serverUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-8 py-4 font-bold text-zinc-900 dark:text-white transition-all hover:bg-black/10 dark:hover:bg-white/10 flex items-center gap-2"
+              >
+                SERVER CODE <span className="text-xl leading-none">↗</span>
               </a>
             )}
           </div>

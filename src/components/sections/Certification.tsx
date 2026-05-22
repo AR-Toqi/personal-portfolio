@@ -1,43 +1,45 @@
 "use client";
 
 import React, { useRef } from "react";
-import { LuGraduationCap } from "react-icons/lu";
+import { LuAward } from "react-icons/lu";
 import { motion } from "framer-motion";
 
-const educationData = [
+const certificationData = [
   {
-    degree: "B.Sc. in Chemistry",
-    institution: "Govt. Brajlal College | Khulna, Bangladesh",
-    duration: "Present",
-    details: ["Currently pursuing undergraduate studies with a focus on chemical sciences and analytical research."],
+    title: "The Complete JavaScript Course 2025 — From Zero to Expert",
+    institution: "Udemy — Jonas Schmedtmann",
+    status: "Certificate",
+    details: ["Comprehensive JavaScript curriculum covering ES6+, asynchronous programming, DOM manipulation, and modern JavaScript frameworks."],
+    certificateUrl: "https://www.udemy.com/certificate/UC-439c7fa6-1d4b-44d4-8605-a4802f8fe58b/",
   },
   {
-    degree: "Higher Secondary Certificate (HSC), Science",
-    institution: "Khulna City College | Khulna, Bangladesh",
-    duration: "2018 — 2020",
-    details: ["GPA: 5.00 / 5.00", "Concentration in Physics, Chemistry, and Higher Mathematics."],
+    title: "Next Level Web Development",
+    institution: "Programming Hero",
+    status: "In Progress",
+    details: ["Advanced web development program focusing on full-stack technologies, real-world projects, and industry best practices."],
+    certificateUrl: null,
   },
 ];
 
-export default function Education() {
+export default function Certification() {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="education" ref={containerRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+    <section id="certification" ref={containerRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
       <div className="mb-20 text-center lg:text-left">
-        <span className="text-label-caps text-primary">// ACADEMIC PATH</span>
+        <span className="text-label-caps text-primary">{ "// CERTIFICATIONS" }</span>
         <h2 className="text-headline-lg text-zinc-900 dark:text-white mt-2">
-          Educational <span className="italic font-light text-primary-container">Foundation.</span>
+          Professional <span className="italic font-light text-primary-container">Credentials.</span>
         </h2>
       </div>
 
       <div className="timeline-container relative">
         {/* Vertical Line */}
-        <div ref={lineRef} className="timeline-line absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/50 via-primary-container/30 to-transparent -translate-x-1/2 hidden md:block"></div>
+        <div ref={lineRef} className="timeline-line absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary/50 via-primary-container/30 to-transparent -translate-x-1/2 hidden md:block"></div>
 
         <div className="space-y-12 md:space-y-0">
-          {educationData.map((edu, idx) => (
+          {certificationData.map((cert, idx) => (
             <div key={idx} className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
               {/* Timeline Dot */}
               <div className="timeline-dot absolute left-4 md:left-1/2 h-4 w-4 rounded-full bg-primary border-4 border-black z-10 -translate-x-1/2 shadow-[0_0_15px_rgba(255,128,0,0.5)] hidden md:block"></div>
@@ -48,28 +50,39 @@ export default function Education() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: idx * 0.2, ease: "easeOut" }}
-                className={`education-card w-full md:w-[45%] glass rounded-[2rem] p-8 md:p-10 hover:border-primary/30 transition-all group relative`}
+                className={`certification-card w-full md:w-[45%] glass rounded-4xl p-8 md:p-10 hover:border-primary/30 transition-all group relative`}
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-xl">
-                    <LuGraduationCap />
+                    <LuAward />
                   </div>
-                  <span className="text-sm font-bold text-primary tracking-wider uppercase">{edu.duration}</span>
+                  <span className="text-sm font-bold text-primary tracking-wider uppercase">{cert.status}</span>
                 </div>
                 
                 <h3 className="text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-primary transition-colors font-plus-jakarta leading-tight">
-                  {edu.degree}
+                  {cert.title}
                 </h3>
-                <p className="text-zinc-600 dark:text-zinc-400 font-medium mt-2 mb-6">{edu.institution}</p>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium mt-2 mb-6">{cert.institution}</p>
                 
                 <div className="space-y-3">
-                  {edu.details.map((detail, i) => (
+                  {cert.details.map((detail, i) => (
                     <div key={i} className="flex items-start gap-3 text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">
                       <div className="h-1 w-1 rounded-full bg-primary/50 mt-2"></div>
                       {detail}
                     </div>
                   ))}
                 </div>
+
+                {cert.certificateUrl && (
+                  <a
+                    href={cert.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary/10 px-4 py-2 text-sm font-bold text-primary hover:bg-primary/20 transition-colors"
+                  >
+                    <span>📜</span> View Certificate
+                  </a>
+                )}
 
                 {/* Decorative Accent */}
                 <div className="absolute top-0 right-0 h-32 w-32 bg-primary/5 blur-3xl -z-10 group-hover:bg-primary/10 transition-colors"></div>

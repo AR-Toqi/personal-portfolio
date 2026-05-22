@@ -7,6 +7,8 @@ export interface IProject {
   techStack?: string[];
   liveDemoUrl?: string;
   sourceCodeUrl?: string;
+  clientUrl?: string;
+  serverUrl?: string;
   challenges?: string[];
   futureImplementations?: string[];
 }
