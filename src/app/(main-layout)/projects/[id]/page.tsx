@@ -21,7 +21,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </Link>
       
       <div className="overflow-hidden glass rounded-[3rem]">
-        <div className="relative h-[400px] md:h-[500px] w-full border-b border-black/5 dark:border-white/5">
+        <div className="relative h-100 md:h-125 w-full border-b border-black/5 dark:border-white/5">
           <Image
             src={project.image}
             alt={project.title}
@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <ul className="space-y-4">
                     {project.challenges.map((challenge, idx) => (
                       <li key={idx} className="flex gap-3 text-zinc-600 dark:text-zinc-400">
-                        <span className="text-primary mt-1 flex-shrink-0">✦</span>
+                        <span className="text-primary mt-1 shrink-0">✦</span>
                         <span>{challenge}</span>
                       </li>
                     ))}
@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <ul className="space-y-4">
                     {project.futureImplementations.map((future, idx) => (
                       <li key={idx} className="flex gap-3 text-zinc-600 dark:text-zinc-400">
-                        <span className="text-primary mt-1 flex-shrink-0">✦</span>
+                        <span className="text-primary mt-1 shrink-0">✦</span>
                         <span>{future}</span>
                       </li>
                     ))}

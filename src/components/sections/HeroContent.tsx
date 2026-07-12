@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,6 +15,14 @@ export default function HeroContent() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+
+  const handleViewProjects = () => {
+    const projectsSection = document.getElementById("projects");
+
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -67,7 +74,7 @@ export default function HeroContent() {
   return (
     <div ref={containerRef} className="flex flex-col items-center gap-12 lg:flex-row lg:justify-between">
       <div className="max-w-3xl text-center lg:text-left">
-        <h1 ref={titleRef} className="text-display-xl mt-4 text-zinc-900 dark:text-white leading-[1.2] min-h-[140px]">
+        <h1 ref={titleRef} className="text-display-xl mt-4 text-zinc-900 dark:text-white leading-[1.2] min-h-35">
           <span className="hero-line block">
             Hi there{" "}
             <motion.span
@@ -110,7 +117,11 @@ export default function HeroContent() {
           Building production-ready web applications with scalable backend systems, efficient APIs, and modern user-focused interfaces.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
-          <button className="hero-cta rounded-full bg-primary-container px-8 py-4 font-bold text-black transition-all hover:bg-primary hover:shadow-[0_0_20px_rgba(255,128,0,0.5)]">
+          <button
+            type="button"
+            onClick={handleViewProjects}
+            className="hero-cta rounded-full bg-primary-container px-8 py-4 font-bold text-black transition-all hover:bg-primary hover:shadow-[0_0_20px_rgba(255,128,0,0.5)]"
+          >
             VIEW PROJECTS
           </button>
           <div className="flex gap-4">
@@ -118,7 +129,7 @@ export default function HeroContent() {
               href="https://github.com/AR-Toqi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 dark:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="GitHub"
             >
               <FaGithub />
@@ -127,7 +138,7 @@ export default function HeroContent() {
               href="https://www.linkedin.com/in/abdullah-ragib-toqi-b5154a297/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 dark:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
@@ -136,7 +147,7 @@ export default function HeroContent() {
               href="https://x.com/ar_toqi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 dark:bg-white/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
+              className="hero-cta h-14 w-14 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 flex items-center justify-center text-zinc-900 dark:text-white text-2xl transition-all hover:bg-black/10 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_15px_rgba(255,183,135,0.3)]"
               aria-label="X (Twitter)"
             >
               <FaXTwitter />
@@ -147,7 +158,7 @@ export default function HeroContent() {
 
       {/* Profile Image with inspired layout */}
       <div ref={imageRef} className="relative group mt-8 lg:mt-0">
-        <div className="relative h-[400px] w-[280px] sm:h-[450px] sm:w-[320px] overflow-hidden rounded-[2rem] md:rounded-3xl md:h-[550px] md:w-[420px] transform transition-transform group-hover:rotate-2">
+        <div className="relative h-100 w-70 sm:h-112.5 sm:w-[320px] overflow-hidden rounded-4xl md:rounded-3xl md:h-137.5 md:w-105 transform transition-transform group-hover:rotate-2">
           <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10"></div>
           <Image
             src="/images/Hero-image.jpg"
@@ -163,7 +174,7 @@ export default function HeroContent() {
             <p className="text-label-caps text-[10px] text-primary">Projects</p>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent z-20">
+          <div className="absolute bottom-0 left-0 right-0 p-8 bg-linear-to-t from-black/80 to-transparent z-20">
             <div className="flex justify-between items-end">
               <div>
                 <p className="text-label-caps text-xs text-zinc-600 dark:text-zinc-400">AVAILABLE AT</p>
@@ -174,8 +185,8 @@ export default function HeroContent() {
           </div>
         </div>
         {/* Cinematic Light Leak */}
-        <div className="absolute -top-20 -right-20 -z-10 h-[300px] w-[300px] bg-primary/30 blur-[120px] rounded-full animate-pulse"></div>
-        <div className="absolute -bottom-20 -left-20 -z-10 h-[300px] w-[300px] bg-secondary/20 blur-[120px] rounded-full"></div>
+        <div className="absolute -top-20 -right-20 -z-10 h-75 w-75 bg-primary/30 blur-[120px] rounded-full animate-pulse"></div>
+        <div className="absolute -bottom-20 -left-20 -z-10 h-75 w-75 bg-secondary/20 blur-[120px] rounded-full"></div>
       </div>
     </div>
   );
